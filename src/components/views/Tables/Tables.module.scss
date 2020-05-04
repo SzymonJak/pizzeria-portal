@@ -2,4 +2,12 @@
 
 .component {
     padding: $base-size;
+
+    a {
+        display: block;
+    }
+}
+
+input {
+    display: block;
 }

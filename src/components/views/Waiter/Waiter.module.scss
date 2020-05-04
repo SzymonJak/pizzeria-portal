@@ -2,4 +2,8 @@
 
 .component {
     padding: $base-size;
+    
+    a {
+        display: block;
+    }
 }
