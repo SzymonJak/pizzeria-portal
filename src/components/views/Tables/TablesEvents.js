@@ -7,7 +7,7 @@ const TablesEvents = () => {
   return (
     <div className={styles.component}>
       <h2>Tables - Events</h2>
-      <Link to={`${process.env.PUBLIC_URL}/tables/events/123`}>Events - ID</Link>
+      <Link to={`${process.env.PUBLIC_URL}/tables/events/testEvent323`}>Events - ID</Link>
       <Link to={`${process.env.PUBLIC_URL}/tables/events/new`}>Events - NEW</Link>
     </div>
   );
