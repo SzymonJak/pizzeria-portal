@@ -31,21 +31,6 @@ function App() {
       <StylesProvider injectFirst>
         <ThemeProvider theme={theme}>
           <MainLayout>
-            <div className="App">
-              <header className="App-header">
-                <p>
-          Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                  className="App-link"
-                  href="https://reactjs.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-          Learn React! Right Now!
-                </a>
-              </header>
-            </div>
             <Switch>
               <Route exact path={`${process.env.PUBLIC_URL}/`} component={Homepage} />
               <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login} />

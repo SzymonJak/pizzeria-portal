@@ -1,5 +1,22 @@
 @import '../../../styles/settings.scss';
 
-.component {
-    padding: $base-size;
+.root {
+    // flex-grow: 1;
+    padding: 4px;
+    margin-top: $base-size;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: hidden;
+    background-color: $primary-color;
+
+    .paper {
+        padding: 2 * $base-size;
+        text-align: center;
+    }
+
+    .tableCenter {
+        text-align: center;
+    }
+
 }

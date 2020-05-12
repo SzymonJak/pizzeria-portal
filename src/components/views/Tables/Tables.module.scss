@@ -3,8 +3,13 @@
 .component {
     padding: $base-size;
 
-    a {
-        display: block;
+    button {
+        border-color: $primary-color;
+        // display: block;
+        a {
+            text-decoration: none;
+            color: $primary-color;
+        }
     }
 }
 
