@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Tables.module.scss';
+import { Link } from 'react-router-dom';
 
+import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -33,6 +35,9 @@ const tileData = [
 const TablesBookingId = ({ match }) => (
   <div className={styles.component}>
     <h3>Existing booking with ID: {match.params.id}</h3>
+    <Button variant='outlined' className={styles.buttonSubmit}>
+      <Link to={`${process.env.PUBLIC_URL}/tables/booking`}>Go Back</Link>
+    </Button>
     <Container maxWidth='lg'>
       <div className={styles.root}>
         {tileData.map((tile, i) => (

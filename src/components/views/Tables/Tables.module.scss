@@ -2,17 +2,36 @@
 
 .component {
     padding: $base-size;
+}
 
-    button {
-        border-color: $primary-color;
-        // display: block;
-        a {
-            text-decoration: none;
-            color: $primary-color;
-        }
+button {
+    border-color: $primary-color;
+    a {
+        text-decoration: none;
+        color: $primary-color;
     }
 }
 
-input {
-    display: block;
+.buttonSubmit {
+    color: $primary-color;
+    border-color: $primary-color;
+    margin: .5 * $base-size;
+}
+
+.root {
+    padding: 4px;
+    margin-top: $base-size;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: hidden;
+    background-color: $primary-color;
+
+    .myBox {
+        margin: $base-size;
+        text-align: center;
+        label {
+            padding: $base-size;
+        }
+    }
 }

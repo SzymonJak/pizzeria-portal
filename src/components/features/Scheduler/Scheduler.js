@@ -27,10 +27,7 @@ import Lens from '@material-ui/icons/Lens';
 import Event from '@material-ui/icons/Event';
 import AccessTime from '@material-ui/icons/AccessTime';
 import Paper from '@material-ui/core/Paper';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
-import FormControl from '@material-ui/core/FormControl';
 import classNames from 'clsx';
 
 import { priorities } from './demo-data/tasks';
@@ -68,30 +65,7 @@ const styles = theme => ({
     },
   },
 });
-const usePrioritySelectorItemStyles = makeStyles(({ palette, spacing }) => ({
-  bullet: ({ color }) => ({
-    backgroundColor: color ? color[400] : palette.divider,
-    borderRadius: '50%',
-    width: spacing(2),
-    height: spacing(2),
-    marginRight: spacing(2),
-    display: 'inline-block',
-  }),
-  prioritySelectorItem: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  priorityText: {
-    '@media (max-width: 500px)': {
-      display: 'none',
-    },
-  },
-  priorityShortText: {
-    '@media (min-width: 500px)': {
-      display: 'none',
-    },
-  },
-}));
+
 const useTooltipContentStyles = makeStyles(theme => ({
   content: {
     padding: theme.spacing(3, 1),
@@ -275,56 +249,11 @@ const GroupingPanelCell = withStyles(groupingStyles, { name: 'GroupingPanelCell'
   );
 });
 
-const PrioritySelectorItem = ({
-  color, text: resourceTitle,
-}) => {
-  const text = resourceTitle || 'All Tasks';
-  const shortText = resourceTitle ? text.substring(0, 1) : 'All';
-  const classes = usePrioritySelectorItemStyles({ color });
-
-  return (
-    <div className={classes.prioritySelectorItem}>
-      <span className={classes.bullet} />
-      <span className={classes.priorityText}>{text}</span>
-      <span className={classes.priorityShortText}>{shortText}</span>
-    </div>
-  );
-};
-
-const PrioritySelector = withStyles(styles, { name: 'PrioritySelector' })(({
-  classes, priorityChange, priority,
-}) => {
-  const currentPriority = priority > 0 ? priorities[priority - 1] : {};
-  return (
-    <FormControl className={classes.prioritySelector}>
-      <Select
-        disableUnderline
-        value={priority}
-        onChange={(e) => {
-          priorityChange(e.target.value);
-        }}
-        renderValue={() => (
-          <PrioritySelectorItem text={currentPriority.text} color={currentPriority.color} />
-        )}
-      >
-        <MenuItem value={0}>
-          <PrioritySelectorItem />
-        </MenuItem>
-        {priorities.map(({ id, color, text }) => (
-          <MenuItem value={id} key={id.toString()}>
-            <PrioritySelectorItem color={color} text={text} />
-          </MenuItem>
-        ))}
-      </Select>
-    </FormControl>
-  );
-});
-
 const FlexibleSpace = withStyles(styles, { name: 'FlexibleSpace' })(({
   classes, priority, priorityChange, ...restProps
 }) => (
   <Toolbar.FlexibleSpace {...restProps} className={classes.flexibleSpace}>
-    <PrioritySelector priority={priority} priorityChange={priorityChange} />
+    {/* <PrioritySelector priority={priority} priorityChange={priorityChange} /> */}
   </Toolbar.FlexibleSpace>
 ));
 const TooltipContent = ({
@@ -383,6 +312,12 @@ const TooltipContent = ({
       </Grid>
     </div>
   );
+};
+
+TooltipContent.propTypes = {
+  formatDate: PropTypes.any,
+  appointmentData: PropTypes.any,
+  appointmentResources: PropTypes.any,
 };
 
 export default class Demo extends React.PureComponent {

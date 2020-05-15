@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Tables.module.scss';
+import { Link } from 'react-router-dom';
 
 import Container from '@material-ui/core/Container';
 import GridList from '@material-ui/core/GridList';
@@ -21,32 +22,43 @@ const demoData = [
 
 const TablesBookingNew = () => (
   <Container maxWidth='lg'>
-    <Typography>
-      <div className={styles.root}>
-        {demoData.map((item, i) => (
-          <GridList key={i} cellHeight={80} className={styles.gridList} cols={4}>
-            <GridListTile key={i} cols={item.cols || 1}>
-              <img src={item.img} alt={item.title} />
-              <GridListTileBar title={item.title}/>
-            </GridListTile>
-          </GridList>
-        ))}
-        <Paper elevation={2} className={styles.myBox}>
-        
-          <label htmlFor='table'>Table No: </label>
-          <input type='number' id='table' placeholder='1-11'></input>
-          <label htmlFor='people'>People No: </label>
-          <input type='number' id='people' placeholder='1-20'></input>
-          <label htmlFor='time'>Time: </label>
-          <input type='time' id='time' placeholder='12:00'></input>
-   
+    <Button variant='outlined' className={styles.buttonSubmit}>
+      <Link to={`${process.env.PUBLIC_URL}/tables/booking`}>Go Back</Link>
+    </Button>
+    <div className={styles.root}>
+      {demoData.map((item, i) => (
+        <GridList key={i} cellHeight={80} className={styles.gridList} cols={4}>
+          <GridListTile key={i} cols={item.cols || 1}>
+            <img src={item.img} alt={item.title} />
+            <GridListTileBar title={item.title}/>
+          </GridListTile>
+        </GridList>
+      ))}
+      <Paper elevation={2} className={styles.myBox}>
 
-          <Button variant="outlined" className={styles.buttonSubmit}>
+        <fieldset>
+          <Typography>
+            <label htmlFor='table'>Table No: </label>
+            <input type='number' id='table' placeholder='1-11'></input>
+          </Typography>
+        </fieldset>
+        <fieldset>
+          <Typography>
+            <label htmlFor='people'>People No: </label>
+            <input type='number' id='people' placeholder='1-20'></input>
+          </Typography>
+        </fieldset>
+        <fieldset>
+          <Typography>
+            <label htmlFor='time'>Time: </label>
+            <input type='time' id='time' placeholder='12:00'></input>
+          </Typography>
+        </fieldset>
+        <Button variant="outlined" className={styles.buttonSubmit}>
         Submit
-          </Button>
-        </Paper>
-      </div>
-    </Typography>
+        </Button>
+      </Paper>
+    </div>
   </Container>
 
 );

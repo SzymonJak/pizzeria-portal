@@ -9,15 +9,16 @@ import Container from '@material-ui/core/Container';
 const Tables = () => (
   <div className={styles.component}>
     <Container maxWidth='lg'>
-      <Typography>
-        <h2>Tables view</h2>
-        <Button variant='outlined'>
-          <Link to={`${process.env.PUBLIC_URL}/tables/booking`}>Booking</Link>
-        </Button>
-        <Button variant='outlined'>
-          <Link to={`${process.env.PUBLIC_URL}/tables/events`}>Events</Link>
-        </Button>
+      
+      <Typography variant='h4' component='h2' gutterBottom>
+        Tables view
       </Typography>
+      <Button variant='outlined' className={styles.buttonSubmit}>
+        <Link to={`${process.env.PUBLIC_URL}/tables/booking`}>Booking</Link>
+      </Button>
+      <Button variant='outlined' className={styles.buttonSubmit}>
+        <Link to={`${process.env.PUBLIC_URL}/tables/events`}>Events</Link>
+      </Button>
       <Scheduler />
     </Container>
   </div>

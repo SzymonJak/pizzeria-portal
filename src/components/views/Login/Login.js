@@ -20,30 +20,33 @@ const demoData = [
 
 const Login = () => (
   <Container maxWidth='lg'>
-    <Typography>
-      <div className={styles.root}>
-        {demoData.map((item, i) => (
-          <GridList key={i} cellHeight={80} className={styles.gridList} cols={4}>
-            <GridListTile key={i} cols={item.cols || 1}>
-              <img src={item.img} alt={item.title} />
-              <GridListTileBar title={item.title}/>
-            </GridListTile>
-          </GridList>
-        ))}
-        <Paper elevation={2} className={styles.myBox}>
-        
-          <label htmlFor='login'>Login: </label>
-          <input type='email' id='login' placeholder='example@host.xx'></input>
-          <label htmlFor='password'>Password: </label>
-          <input type='password' id='password' placeholder='password'></input>
-   
-
-          <Button variant="outlined" className={styles.buttonSubmit}>
+    <div className={styles.root}>
+      {demoData.map((item, i) => (
+        <GridList key={i} cellHeight={80} className={styles.gridList} cols={4}>
+          <GridListTile key={i} cols={item.cols || 1}>
+            <img src={item.img} alt={item.title} />
+            <GridListTileBar title={item.title}/>
+          </GridListTile>
+        </GridList>
+      ))}
+      <Paper elevation={2} className={styles.myBox}>
+        <div>
+          <Typography>
+            <label htmlFor='login'>Login: </label>
+            <input type='email' id='login' placeholder='example@host.xx'></input>
+          </Typography>
+        </div>
+        <div>
+          <Typography>
+            <label htmlFor='password'>Password: </label>
+            <input type='password' id='password' placeholder='password'></input>
+          </Typography>
+        </div>
+        <Button variant="outlined" className={styles.buttonSubmit}>
         Submit
-          </Button>
-        </Paper>
-      </div>
-    </Typography>
+        </Button>
+      </Paper>
+    </div>
   </Container>
 
 );

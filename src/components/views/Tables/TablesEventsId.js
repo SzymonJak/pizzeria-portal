@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './Tables.module.scss';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
+import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -34,6 +36,9 @@ const tileData = [
 const TablesEventsId = ({ match }) => (
   <div className={styles.component}>
     <h3>Existing event with ID: {match.params.id}</h3>
+    <Button variant='outlined' className={styles.buttonSubmit}>
+      <Link to={`${process.env.PUBLIC_URL}/tables/events`}>Go Back</Link>
+    </Button>
     <Container maxWidth='lg'>
       {tileData.map((tile, i) => (
 
