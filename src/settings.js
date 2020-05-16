@@ -1,5 +1,6 @@
 export const api = {
   url: '//' + window.location.hostname + (window.location.hostname==='localhost' ? ':3131/db' : ''),
+  putURL: '//' + window.location.hostname + (window.location.hostname==='localhost' ? ':3131/api' : ''),
   tables: 'tables',
   products: 'products',
   order: 'order',

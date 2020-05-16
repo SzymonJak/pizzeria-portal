@@ -17,6 +17,7 @@ class Waiter extends React.Component {
       error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     }),
     tables: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    changeTableStatus: PropTypes.func,
   }
 
   componentDidMount(){
@@ -24,30 +25,31 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(status) {
+  renderActions(tableID, status) {
+    const { changeTableStatus } = this.props;
     switch (status) {
       case 'free':
         return (
           <>
-            <Button>thinking</Button>
+            <Button onClick={() => changeTableStatus(tableID, 'done')}>thinking</Button>
             <Button>new order</Button>
           </>
         );
       case 'thinking':
         return (
-          <Button>new order</Button>
+          <Button onClick={() => changeTableStatus(tableID, 'done')}>new order</Button>
         );
       case 'ordered':
         return (
-          <Button>prepared</Button>
+          <Button onClick={() => changeTableStatus(tableID, 'done')}>prepared</Button>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button onClick={() => changeTableStatus(tableID, 'done')}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button onClick={() => changeTableStatus(tableID, 'done')}>paid</Button>
         );
       case 'paid':
         return (
@@ -103,7 +105,7 @@ class Waiter extends React.Component {
                     )}
                   </TableCell>
                   <TableCell>
-                    {this.renderActions(row.status)}
+                    {this.renderActions(row.id, row.status)}
                   </TableCell>
                 </TableRow>
               ))}
